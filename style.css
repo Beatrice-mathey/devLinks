@@ -4,22 +4,44 @@
     box-sizing: border-box;
 }
 
+:root {
+    --text-color: white;
+    --bg-url: url(Background.jpg);
+    --stroke-color: rgba(255, 255, 255, 0.5);
+    --surface-color: rgba(255, 255, 255, 0.1);
+    --surface-color-hover: rgba(0, 0, 0, 0.2);
+    --highlight-color: rgba(255, 255, 255, 0.2);
+    --switch-bg-url: url(./moon-stars.svg);
+}
+
+.light {
+    --text-color: black;
+    --bg-url: url(Background-claro.jpg);
+    --stroke-color: rgba(0, 0, 0, 0.5);
+    --surface-color: rgba(0, 0, 0, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.2);
+    --highlight-color: rgba(0, 0, 0, 0.1);
+    --switch-bg-url: url(./sun.svg);
+}
+
+
 body { 
-    background : url(./Background.jpg) no-repeat top center/cover;
+    background: var(--bg-url) no-repeat top center/cover;
 }
 
 body *{ 
     font-family: "Inter", sans-serif;
-    color: #fff;
+    color: var(--text-color);
 }
 
 #container {
     width: 22.5rem;
     margin: 56px auto 0px; /*cima lado baixo */
-    border: 1px solid yellow; /* colocar borda para estudar depois pode tirar */
-    padding: 0 24px;
+    /* border: 1px solid yellow;  colocar borda para estudar depois pode tirar */
+    padding: 0 24px
+    ;
 }
-
+/* PROFILE */
 #profile{
     text-align: center;
     padding: 24px; /*figma*/
@@ -28,7 +50,7 @@ body *{
 
 #profile img {
     width: 112px;
-    border-radius: 50% 0;
+    border-radius: 50%;
     background-image: linear-gradient(90deg, pink 0% /*cor inicio da margem*/, purple 50.52%, #E2D45C 100%/*final do final da margin degrade*/);
     padding: 4px;
 }
@@ -39,6 +61,48 @@ body *{
     margin-top: 8px; /*figma*/
 }
 
+/* SWITCH */
+
+#switch {
+    /* border: 1px solid red;  teste de borda */
+    position: relative; /* faz o botão sol/lua (span) ficar dentro da caixa buttom */
+    width: 64px; /*tamanho da caixa */
+
+    margin: 4px auto; /*centralizou o botão (alinhamento de display block*/
+}
+
+#switch button{
+    width: 32px;
+    height: 32px;
+    border: 0;
+    border-radius: 50%;
+    background: white var(--switch-bg-url) no-repeat center; /* <-- modo de posicionar um background */;
+
+    /*modo de centralizar um position absolute */
+    position: absolute; /* position relative (acima) domina o absolute e mantem o sol|lua (buttom) dentro do track (span) */
+    z-index: 1; /*camada sol|lua (buttom) sobre track (span) */
+    right: 0;
+    transform: translateY(-50%); /* move o elemento pra cima e X pros lados */
+    top: 50%; /* traz o elemento Y pra baixo */
+}
+
+.light #switch button{ /* muda o sol|lua pro outro lado */
+    right: 0;
+    left: initial;
+
+}
+
+#switch span { /* track */
+    display: block;
+    width: 64px;
+    height: 24px;
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 9999px;
+}
+
 /*links*/
 
 ul {
@@ -47,21 +111,22 @@ ul {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    padding: 24px 0;
 
 }
 
 ul li a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; 
+    align-items: center; /*forma de alinhar um DISPLAY FLEX */
+    justify-content: center; /*forma de alinhar um DISPLAY FLEX */
     padding: 16px 24px;
 
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    background-color: var(--surface-color-hover);
+    border: 1px solid var(--stroke-color);
     border-radius: 8px;
 
     backdrop-filter: blur(4px);
-    -webkit-background-top: blur(4px) ;
+    -webkit-backdrop-filter: blur(4px) ;
 
     text-decoration: none; /*tira a linha abaixo das letras */
     font-weight: 500;
@@ -71,8 +136,34 @@ ul li a {
 
 ul li a:hover {
     background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid white;
+    border: 1px solid var(--text-color);
 }
 
+/*social links */
 
+#social-links {
+    display: flex;
+    justify-content: center;
+    padding: 24px 0;
+    font-size: 24px;
+}
 
+#social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    transition: background-color 0.2s;
+    border-radius: 50%;
+}
+
+#social-links a:hover {
+    background: var(--highlight-color);
+    padding: 16px;
+}
+
+footer{
+    padding: 24px;
+    text-align: center;
+    font-size: 14px;
+}
