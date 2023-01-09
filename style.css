@@ -17,7 +17,7 @@ body *{
     width: 22.5rem;
     margin: 56px auto 0px; /*cima lado baixo */
     border: 1px solid yellow; /* colocar borda para estudar depois pode tirar */
-    
+    padding: 0 24px;
 }
 
 #profile{
@@ -38,3 +38,41 @@ body *{
     line-height: 24px;
     margin-top: 8px; /*figma*/
 }
+
+/*links*/
+
+ul {
+    list-style: none; /*tira a bolinha */
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+}
+
+ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 24px;
+
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+
+    backdrop-filter: blur(4px);
+    -webkit-background-top: blur(4px) ;
+
+    text-decoration: none; /*tira a linha abaixo das letras */
+    font-weight: 500;
+
+    transition: background-color 0.5s;
+}
+
+ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid white;
+}
+
+
+
