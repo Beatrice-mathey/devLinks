@@ -13,8 +13,8 @@ Programa exclusivo e gratuito, promovido pela Rocketseat para ensino de tecnolog
 </p>
 
 <p align="center">
-  ![Captura de tela 2023-01-11 171924](https://user-images.githubusercontent.com/102373019/211909518-310be586-dff9-4640-a904-26a007cd9628.png)
-  ![Captura de tela 2023-01-11 171947](https://user-images.githubusercontent.com/102373019/211909533-e6712191-16a6-49f0-8b86-cfa8e525627b.png)
+  <img src='https://user-images.githubusercontent.com/102373019/211909518-310be586-dff9-4640-a904-26a007cd9628.png'>
+  <img src='https://user-images.githubusercontent.com/102373019/211909533-e6712191-16a6-49f0-8b86-cfa8e525627b.png'>
 </p>
 
 <br>
