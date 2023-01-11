@@ -6,22 +6,22 @@
 
 :root {
     --text-color: white;
-    --bg-url: url(Background.jpg);
+    --bg-url: url(./imagens/Background-moon.jpg);
     --stroke-color: rgba(255, 255, 255, 0.5);
     --surface-color: rgba(255, 255, 255, 0.1);
     --surface-color-hover: rgba(0, 0, 0, 0.2);
     --highlight-color: rgba(255, 255, 255, 0.2);
-    --switch-bg-url: url(./moon-stars.svg);
+    --switch-bg-url: url(./imagens/moon-stars.svg);
 }
 
 .light {
     --text-color: black;
-    --bg-url: url(Background-claro.jpg);
+    --bg-url: url(./imagens/Background-sun.jpg);
     --stroke-color: rgba(0, 0, 0, 0.5);
     --surface-color: rgba(0, 0, 0, 0.05);
     --surface-color-hover: rgba(0, 0, 0, 0.2);
     --highlight-color: rgba(0, 0, 0, 0.1);
-    --switch-bg-url: url(./sun.svg);
+    --switch-bg-url: url(./imagens/sun.svg);
 }
 
 
@@ -70,10 +70,10 @@ body *{
     position: relative; /* faz o botão sol/lua (span) ficar dentro da caixa buttom */
     width: 64px; /*tamanho da caixa */
 
-    margin: 4px auto; /*centralizou o botão (alinhamento de display block*/
+    margin: 4px auto; /*centralizou o botão (alinhamento de display block)*/
 }
 
-#switch button{
+#switch button {
     width: 32px;
     height: 32px;
     border: 0;
@@ -82,16 +82,22 @@ body *{
 
     /*modo de centralizar um position absolute */
     position: absolute; /* position relative (acima) domina o absolute e mantem o sol|lua (buttom) dentro do track (span) */
-    z-index: 1; /*camada sol|lua (buttom) sobre track (span) */
-    right: 0;
-    transform: translateY(-50%); /* move o elemento pra cima e X pros lados */
     top: 50%; /* traz o elemento Y pra baixo */
+    left: 0;
+    z-index: 1; /*camada sol|lua (buttom) sobre track (span) */
+    transform: translateY(-50%); /* move o elemento pra cima e X pros lados */ 
+
+    animation: slide-back 0.2s; /* ver lá no final */
+
 }
 
-.light #switch button{ /* muda o sol|lua pro outro lado */
-    right: 0;
-    left: initial;
+.light #switch button { /* muda o sol|lua pro outro lado */
+    animation: slide-in 0.4s forwards /* --> faz reiniciar o comando 4s */
+    /* ver lá no final */
+}
 
+#switch button:hover {
+    outline: 8px solid var(--highlight-color) /* cor de fundo do circulo botão */
 }
 
 #switch span { /* track */
@@ -179,5 +185,25 @@ footer{
 
     .light {
         --bg-url: url(./bg-sun.jpg);
+    }
+}
+
+/* animation */
+
+@keyframes slide-in {
+    from{
+        left: 0;
+    }
+    to {
+        left: 50%;
+    }
+}
+
+@keyframes slide-back {
+    from {
+        left:50%;
+    }
+    to {
+        left: 0;
     }
 }
