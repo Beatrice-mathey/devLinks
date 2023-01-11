@@ -27,6 +27,7 @@
 
 body { 
     background: var(--bg-url) no-repeat top center/cover;
+    height: 100vh; /* media queries - altura da página viewport*/
 }
 
 body *{ 
@@ -169,7 +170,7 @@ footer{
     font-size: 14px;
 }
 
-/* media queries */
+/* media queries - largura da página e largura das tags dentro da pag */
 
 @media (min-width: 700px){
     :root {
